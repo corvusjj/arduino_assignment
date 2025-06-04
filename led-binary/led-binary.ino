@@ -9,13 +9,17 @@ void getBinary(int inputNum) {
     if (inputNum > bit4ValueMax) return bit4Array;
 
     if (inputNum >= valueArray[i]) {
-      Serial.println(valueArray[i]);
+      bit4Array[i] = 1;
       inputNum -= valueArray[i];
-      delay(1000);
     }
 
     if (inputNum <= 0) break;
   }
+
+  Serial.println(bit4Array[0]);
+  Serial.println(bit4Array[1]);
+  Serial.println(bit4Array[2]);
+  Serial.println(bit4Array[3]);
 }
 
 void setup() {
