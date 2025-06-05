@@ -1,6 +1,11 @@
-int valueArray[4] = {8, 4, 2, 1};
-int valueArrayLength = sizeof(valueArray) / sizeof(valueArray[0]);
-int bit4ValueMax = 15;
+const int valueArray[4] = {8, 4, 2, 1};
+const int valueArrayLength = sizeof(valueArray) / sizeof(valueArray[0]);
+const int bit4ValueMax = 15;
+
+const int ledPin0 = 9;
+const int ledPin1 = 10;
+const int ledPin2 = 11;
+const int ledPin3 = 12;
 
 int bit4Array[4] = {0, 0, 0, 0};
 
@@ -24,15 +29,30 @@ void setBit4Array(int inputNum) {
   }
 }
 
+void setBinaryLedPins() {
+  setBit4Array(12);
+
+  digitalWrite(ledPin0, bit4Array[0]);
+  digitalWrite(ledPin1, bit4Array[1]);
+  digitalWrite(ledPin2, bit4Array[2]);
+  digitalWrite(ledPin3, bit4Array[3]);
+}
+
+
 void setup() {
   Serial.begin(9600);
 
-  setBit4Array(1);
-  Serial.println(bit4Array[0]);
-  Serial.println(bit4Array[1]);
-  Serial.println(bit4Array[2]);
-  Serial.println(bit4Array[3]);
+  // Serial.println(bit4Array[0]);
+  // Serial.println(bit4Array[1]);
+  // Serial.println(bit4Array[2]);
+  // Serial.println(bit4Array[3]);
 
+  pinMode(ledPin0, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
 }
 
-void loop() {}
+void loop() {
+	setBinaryLedPins();
+}
