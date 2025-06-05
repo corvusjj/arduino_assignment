@@ -30,23 +30,22 @@ void setBit4Array(int inputNum) {
 }
 
 void setBinaryLedPins() {
-  setBit4Array(12);
-
   digitalWrite(ledPin0, bit4Array[0]);
   digitalWrite(ledPin1, bit4Array[1]);
   digitalWrite(ledPin2, bit4Array[2]);
   digitalWrite(ledPin3, bit4Array[3]);
 }
 
+void runLedBinaryCount() {
+  for (int i = 0; i <= bit4ValueMax; i++) {
+    setBit4Array(i);
+    setBinaryLedPins();
+    delay(1000);
+  }
+}
+
 
 void setup() {
-  Serial.begin(9600);
-
-  // Serial.println(bit4Array[0]);
-  // Serial.println(bit4Array[1]);
-  // Serial.println(bit4Array[2]);
-  // Serial.println(bit4Array[3]);
-
   pinMode(ledPin0, OUTPUT);
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
@@ -54,5 +53,5 @@ void setup() {
 }
 
 void loop() {
-	setBinaryLedPins();
+	runLedBinaryCount();
 }
