@@ -8,7 +8,7 @@ float getVoltage2(int analogVal) {
 
 void activateLedScale(float voltage) {
   const float maxLedIndex = (voltage/5) * ledPinsLength;
-  // maxLedIndex will be 1.00 to 6.00 as from ledPinsLength ratio to 0-5 voltage
+  // maxLedIndex will be 0.00 to 6.00 as from ledPinsLength ratio to 0-5 voltage
 
   for(int i = 0; i < ledPinsLength; i++) {
     digitalWrite(ledPins[i], (maxLedIndex - 1 >= i)? HIGH: LOW);
